@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  
+
+  
+
+  
+    <meta name="author" content="YuChen Ma">
+  
+
+  
+
+  
+
+  <title>Java线程概要 | Welcome To My Blog !</title>
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+    <link href="https://cdn.bootcss.com/highlight.js/9.15.6/styles/default.min.css" rel="stylesheet">
+  
+
+  <link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body>
+
+  <div id="container">
+    <!-- header -->
+<header class="header">
+  <div class="header-container ">
+    <nav class="header-navbar">
+      <div class="header-navbar-left">
+        <h1 class="header-navbar-logo">
+          <a href="/">
+            
+              Welcome To My Blog !
+            
+          </a>
+        </h1>
+      </div>
+      <div class="header-navbar-right">
+        <div class="header-navbar-btn">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <ul class="header-navbar-list">
+          
+            <li class="header-navbar-item"><a href="/">首页</a></li>
+          
+            <li class="header-navbar-item"><a href="/">分类</a></li>
+          
+            <li class="header-navbar-item"><a href="/">标签</a></li>
+          
+            <li class="header-navbar-item"><a href="/">留言</a></li>
+          
+            <li class="header-navbar-item"><a href="/">关于</a></li>
+          
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>
+
+    <section id="main"><!-- 文章详情页 -->
+
+<!-- banner container -->
+<div class="banner-container" style="background-image: url(http://i-4-yxdown.715083.com/2017/11/5/27dee704-db93-4ef6-9ca6-17be4638ef8b.jpg?imageView2/2/q/90)">
+  <div class="banner-inner">
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+      <h1 class="header-title"><a href="/2019/06/09/mycTest/">Java线程概要</a></h1>
+      <h2 class="header-subtitle">
+        
+          
+          <!--
+          
+  <a href="javascript:;" class="article-date">
+    <time datetime="2019-06-09T01:48:42.000Z" itemprop="datePublished">2019-06-09 09:48:42</time>
+  </a>
+
+          -->
+        
+      </h2>
+    
+
+    
+    
+  </div>
+</div>
+
+<!-- 文章内容 -->
+
+<div class="body-container">
+  <article id="article-content" class="main-container article-content zoom">
+    
+    
+
+    <div class="article-entry">
+      <p>1.线程概述<br>       线程是进程的执行单元，进程具有：独立性，动态性，并发性三个特征。线程是进程的组成部分，一个进程可以拥有多个线程，一个线程必须有一个父进程，线程可以有自己的堆栈，自己的计数器，自己的局部变量，但不拥有系统资源，他与父进程的其他线程共享该进程所拥有的全部资源。线程之间的运行是独立性的，但其执行是抢夺式的，但一个线程可以操作其他的线程，同一进程的线程之间可以并发执行。</p>
+<pre><code> 简而言之，一个程序运行之后至少有一个进程，一个进程可以包含多个线程，但至少包含一个线程。（操作系统可以同时执行多个任务，每个任务就是进程；进程可以执行多个任务，每个任务就是线程）
+
+并发：指同一时刻只能有一条指令执行，但多个进程指令被快速轮换执行。
+
+并行：同一时刻，有多条指令在多个处理器上同时执行。</code></pre><p>2.线程的创建与启动<br>2-1，继承Thread类</p>
+<pre><code>步骤：
+
+1.定义Thread的子类，重写其run()方法。
+
+2.实例化该类。
+
+3.调用线程对象的start()方法来启动该线程。</code></pre><p>2-1，实现Runnable接口</p>
+<pre><code>步骤： 
+
+1.定义Runnable接口的实现类，实现其run()方法。
+
+2.创建Runnable实现类的实例，并以此实例作为Thread的参数来创建Thread对象。
+
+3.调用线程对象的start()方法来启动该线程。</code></pre><p>2-3，使用Callable和Future创建线程</p>
+<pre><code>步骤：
+
+1.创建Callable接口的实现类，并实现call()方法。（call()方法将作为线程的执行体，有返回值）创建Callable的实例。
+
+2.使用FutureTask类来包装Callable对象。（该FutureTask对象封装了Callable对象的call()方法的返回值）
+
+3.使用FutureTask对象作为Thread对象的参数创建并启动线程。
+
+4.调用FutureTask对象的get()方法来获得子线程执行结束后的返回值。</code></pre><p>className rt = new className();</p>
+<p>FutureTask<integer> task = new FutureTask<integer>((Callable<integer>)()-&gt;{//线程运行的内容});</integer></integer></integer></p>
+<p>new Thread(task).start();</p>
+<p>task.get();</p>
+<pre><code>注意：Callable接口有泛型限制，Callable接口里的泛型形参类型与call()方法的返回值类型相同。
+
+而且Callable接口是函数式接口（类似于ES6中声明函数）</code></pre><p>2-4.三种方式的比较</p>
+<pre><code>第一中方法，不能再继承其他类，有局限性；第二种方法还可以实现继承其他类，推荐使用；第三种方法也可以继承和实现其它类，但过程有些复杂。</code></pre><p>3.线程的控制<br>3-1.后台线程</p>
+<pre><code>后台线程可以说是为前台线程服务的线程，比如垃圾回收机制。后台线程会在前台线程死亡后自动死亡，当人为强制结束一前台线程时，无论后台线程是否执行完，都会死亡。我们一般自己定义的线程都是前台线程，当然也可以通过Thread的setDaemon(true);方法设置一线程为后台线程，次设置要放在start();方法前。判断一个线程是否为后台线程可以用Thread类的isDaemon();方法。</code></pre><p>3-2.线程控制</p>
+<pre><code> 首先，线程有新建，就绪，运行，死亡，阻塞这五种状态。
+
+join()方法：调用此方法的线程对象会一直占用cpu的执行权，知道该线程执行结束，才允许当前其它线程抢夺cpu执行权。
+
+sleep()方法：让线程睡眠一定的时间，不会释放资源，相当于使该线程进入阻塞状态，没有释放锁。
+
+yield()方法：让该线程暂停执行，并进入就绪状态，不会阻塞该线程，不释放锁。
+
+wait()方法：让该线程进入等待状态，在被唤醒之前都不会执行，会释放cpu资源，也释放了锁，也有和sleep一样的时间参数。
+
+notify()和notifyAll()方法：用来唤醒线程，与wait()方法结合使用。
+
+等待唤醒必须写在同步代码块中，也就是说等待和唤醒的都是同步的线程。</code></pre><p>4.线程的同步<br>       线程的同步目的是为了解决多个线程对只有一份的资源共同访问带来的资源安全问题，这一问题的原因是线程的执行是抢夺式的。解决这一问题可以通过同步代码块，同步方法和同步锁来解决。</p>
+<p>4-1.同步代码块</p>
+<pre><code>只需要在需要的步的代码块外用synchronized（）｛｝包起来，并给其传人加锁的对象，便可以使得同步代码块中的代码在执行时一直占用cpu执行权，在代码执行完后会释放锁。这样别的线程在要操作加锁的对象时，会失败，因为同一时刻只能有一个线程拿到锁。</code></pre><p>4-2.同步方法</p>
+<pre><code>同步方法是在一个方法前加上synchronized关键字，使其变为同步方法。其锁是调用此方法的对象，也就是this。
+
+要注意的是synchronized只能修饰代码块和方法，不能修饰其他。
+
+锁会在同步代码执行完后，遇到wait()方法或者发生错误后释放，在其他情况下都不会释放锁。</code></pre><p>4-3.同步锁</p>
+<pre><code>同步锁是Java 5后通过显示的定义同步锁对象来实现同步，在这种机制下，同步锁由Lock对象充当。</code></pre><p>private final ReentrantLock lock = new ReentrantLock( );</p>
+<pre><code>ReentrantLock（可重入锁）是Lock接口的实现类，Lock，ReadWriteLock是Java 5提供两个根接口，ReentrantReadWriteLock是ReadWriteLock接口的实现类，ReentrantReadWriteLock类为读写操作提供了三种锁模式：Writing，ReadingOptimistic,Reading。Java 8还增加了StampedLock类。
+
+在使用是通过lock.lock()和lock.unlock()将同步的代码包起来就可以了。</code></pre><p>5.线程的通信<br>5-1.等待唤醒机制</p>
+<pre><code>wait()和notify()这两方法在Object中，没在Thread中，同时等待唤醒必须写在同步代码块中，也就是说等待和唤醒的都是同步的线程。</code></pre><p>5-2.使用Condition控制线程通信</p>
+<pre><code>如果线程中没有synchronized关键字来保证同步，而是使用Lock来同步，就可以使用Condition类，他可以让得到Lock对象却无法继续执行的线程释放Lock对象。</code></pre><p>private final ReentrantLock lock = new ReentrantLock( );</p>
+<p>private final Condition cond = lock.newCondition( );</p>
+<pre><code>这里主要有三个方法和wait(),notify(),notifyAll()相对应，await(),signal(),signalAll()。因为Condition将前三个方法分解成了其他不同的对象。</code></pre><p>5-3.使用阻塞队列控制线程通信（不好用）</p>
+<pre><code>Java提供了一个BlockingQueue接口，他是Queue的子接口，主要用途是作为线程同步的工具，而不是容器。他有一个特征，当线程要向队列放入元素时，如果队满，则线程被阻塞；当线程从队列中取元素时，如果队列以空，则线程进入阻塞。这样就可以控制线程的阻塞。
+
+BlockingQueue提供了两个支持阻塞的方法：put（E e）和take（E e）。</code></pre><p>6.线程池<br>       当系统启动一个新线程的成本是比较高的（创建新的PCB等），在使用线程池后可以很好的提高性能。</p>
+<pre><code>线程池在系统启动时会创建大量空闲的线程，当一个Runnable或Callable对象传给线程池时，线程池会启动一个线程来执行他们的run()或call()方法，当run()或call()方法执行完后，该线程不会死亡，而是再次返回线程池中成为空闲状态，等待下一次启动。
+
+使用线程池也可以有效的控制系统中并发线程的数量。具体的使用请看我的另一篇文章：Java线程池（未写）。</code></pre>
+    </div>
+
+    <div class="article-footer">
+      
+    </div>
+
+    <div class="article-navs">
+      
+<nav class="card-container card-article-nav">
+  <div class="card-wrap">
+    
+    
+      <div class="card-item">
+        <article>
+          
+          <a class="card-link article-nav-link" href="/2019/06/09/mycTest的副本 10/"></a>
+          <div class="article-nav-caption">Older</div>
+          <div class="article-nav-title">用动态规划解决01背包问题</div>
+        </article>
+      </div>
+    
+  </div>
+</nav>
+
+    </div>
+    
+    
+  <div id="comment-container" class="comment-container"></div>
+
+  </article>
+</div></section>
+
+    <!-- footer container -->
+<footer id="footer" class="footer">
+  <div class="footer-container">
+    <p>&copy; 2019 <a href="/" target="_blank">YuChen Ma</a></p>
+
+    
+      <p id="hitokoto"></p>
+      <script src="https://v1.hitokoto.cn/?c=a&amp;encode=js&select=%23hitokoto" defer></script>
+    
+
+    
+
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> Theme - <a href="https://github.com/miiiku/flex-block" target="_blank">flex-block</a></p>
+  </div>
+</footer>
+  </div>
+
+  <div>
+  
+    <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script> <!-- 动态线段背景 -->
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script> <!-- live2D看板娘 -->
+
+
+  </div>
+
+</body>
+</html>

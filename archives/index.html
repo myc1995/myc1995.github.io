@@ -31,10 +31,8 @@
   
 
   <link rel="stylesheet" href="/css/style.css">
-
 </head>
 <body>
-
   <div id="container">
     <!-- header -->
 <header class="header">
@@ -44,7 +42,7 @@
         <h1 class="header-navbar-logo">
           <a href="/">
             
-              Welcome To My Blog !
+              <img src="https://i.ibb.co/pWYCKck/061008534417-0big-dchav-3.png" alt="Welcome To My Blog !">
             
           </a>
         </h1>
@@ -59,13 +57,13 @@
           
             <li class="header-navbar-item"><a href="/">首页</a></li>
           
-            <li class="header-navbar-item"><a href="/">分类</a></li>
+            <li class="header-navbar-item"><a href="/categories">分类</a></li>
           
-            <li class="header-navbar-item"><a href="/">标签</a></li>
+            <li class="header-navbar-item"><a href="/tags">标签</a></li>
           
-            <li class="header-navbar-item"><a href="/">留言</a></li>
+            <li class="header-navbar-item"><a href="/messages">留言</a></li>
           
-            <li class="header-navbar-item"><a href="/">关于</a></li>
+            <li class="header-navbar-item"><a href="/about">关于</a></li>
           
         </ul>
       </div>
@@ -127,7 +125,7 @@
 
               </div>
               <div class="article-category">
-                
+                <a class="article-category-link" href="/categories/java/">java</a>
               </div>
             </article>
           </div>
@@ -145,52 +143,6 @@
                 <span>发布于</span>
                 
   <a href="/2019/06/09/mycTest的副本 10/" class="article-date">
-    <time datetime="2019-06-09T01:48:42.000Z" itemprop="datePublished">2019-06-09</time>
-  </a>
-
-              </div>
-              <div class="article-category">
-                
-              </div>
-            </article>
-          </div>
-        
-          
-          <div class="card-item">
-            <article>
-              
-              
-                <a class="article-link" href="/2019/06/09/mycTest的副本 8/" itemprop="url"></a>
-              
-              <h2 class="article-title">用动态规划解决01背包问题</h2>
-              <div class="article-meta">
-                <strong>YuChen Ma</strong>
-                <span>发布于</span>
-                
-  <a href="/2019/06/09/mycTest的副本 8/" class="article-date">
-    <time datetime="2019-06-09T01:48:42.000Z" itemprop="datePublished">2019-06-09</time>
-  </a>
-
-              </div>
-              <div class="article-category">
-                
-              </div>
-            </article>
-          </div>
-        
-          
-          <div class="card-item">
-            <article>
-              
-              
-                <a class="article-link" href="/2019/06/09/mycTest的副本/" itemprop="url"></a>
-              
-              <h2 class="article-title">Java线程概要</h2>
-              <div class="article-meta">
-                <strong>YuChen Ma</strong>
-                <span>发布于</span>
-                
-  <a href="/2019/06/09/mycTest的副本/" class="article-date">
     <time datetime="2019-06-09T01:48:42.000Z" itemprop="datePublished">2019-06-09</time>
   </a>
 
@@ -247,6 +199,52 @@
             </article>
           </div>
         
+          
+          <div class="card-item">
+            <article>
+              
+              
+                <a class="article-link" href="/2019/06/09/mycTest的副本 8/" itemprop="url"></a>
+              
+              <h2 class="article-title">用动态规划解决01背包问题</h2>
+              <div class="article-meta">
+                <strong>YuChen Ma</strong>
+                <span>发布于</span>
+                
+  <a href="/2019/06/09/mycTest的副本 8/" class="article-date">
+    <time datetime="2019-06-09T01:48:42.000Z" itemprop="datePublished">2019-06-09</time>
+  </a>
+
+              </div>
+              <div class="article-category">
+                
+              </div>
+            </article>
+          </div>
+        
+          
+          <div class="card-item">
+            <article>
+              
+              
+                <a class="article-link" href="/2019/06/09/mycTest的副本/" itemprop="url"></a>
+              
+              <h2 class="article-title">Java线程概要</h2>
+              <div class="article-meta">
+                <strong>YuChen Ma</strong>
+                <span>发布于</span>
+                
+  <a href="/2019/06/09/mycTest的副本/" class="article-date">
+    <time datetime="2019-06-09T01:48:42.000Z" itemprop="datePublished">2019-06-09</time>
+  </a>
+
+              </div>
+              <div class="article-category">
+                
+              </div>
+            </article>
+          </div>
+        
       </div>
     </div>
   </div>
@@ -274,14 +272,120 @@
   </div>
 
   <div>
-  
     <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script> <!-- 动态线段背景 -->
 
     <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script> <!-- live2D看板娘 -->
-
-
   </div>
+  
+  <!-- 尾部其他内容 -->
 
+<!-- analytics -->
+
+
+
+
+
+
+
+  
+  
+
+<!-- dplayer 视频 -->
+<link rel="stylesheet" href="/lib/DPlayer.min.css">
+<script src="/lib/DPlayer.min.js"></script>
+<script type="text/javascript">
+  const dplayer = document.querySelectorAll(".dplayer");
+  dplayer && initDPlayer(dplayer);
+  function initDPlayer(els) {
+    let elsArr = Array.from(els);
+    elsArr.forEach(el => {
+      let url = el.dataset.url;
+      let cover = el.dataset.cover;
+      new DPlayer({
+        container: el,
+        video: { url: url, pic: cover },
+        theme: "#b7daff",
+        autoplay: false,
+        loop: false,
+        mutex: true,
+      });
+    });
+  }
+</script>
+
+
+<!-- 瀑布流 -->
+<script src="/lib/macy.js"></script>
+<script type="text/javascript">
+
+if (document.querySelector(".waterfall-container")) {
+  initCss()
+  initMacy(".waterfall-container")
+}
+
+function initMacy(selector) {
+  new Macy({
+    container: selector,
+    trueOrder: false,
+    waitForImages: false,
+    useOwnImageLoader: false,
+    mobileFirst: true,
+    columns: 1,
+    margin: {
+      y: 16,
+      x: '2%',
+    },
+    breakAt: {
+      1200: {
+        margin: {
+          x: 20
+        },
+        columns: 4
+      },
+      940: {
+        margin: {
+          x: 20
+        },
+        columns: 3
+      },
+      520: {
+        margin: {
+          x: 10
+        },
+        columns: 2
+      },
+      400: {
+        margin: {
+          x: 0
+        },
+        columns: 1
+      },
+    }
+  });
+}
+
+function initCss() {
+  let cssStyle = document.createElement("style")
+  cssStyle.innerText = `.waterfall-container p { display: block; border-radius: 4px; overflow: hidden; margin: 0; }`
+  document.head.appendChild(cssStyle);
+}
+</script>
+
+
+<!-- 图片预览 -->
+<script src="/lib/zoom.min.js"></script>
+<script>
+  document.querySelector(".zoom") && zoom(".zoom", {
+    margin: 15,
+    padding: 15,
+    radius: 5,
+    specify: "",
+    filter: "gallery",
+  });
+</script>
+
+
+<script src="/js/script.js"></script>
 </body>
 </html>

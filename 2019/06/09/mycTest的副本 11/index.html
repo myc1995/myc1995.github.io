@@ -31,10 +31,8 @@
   
 
   <link rel="stylesheet" href="/css/style.css">
-
 </head>
 <body>
-
   <div id="container">
     <!-- header -->
 <header class="header">
@@ -44,7 +42,7 @@
         <h1 class="header-navbar-logo">
           <a href="/">
             
-              Welcome To My Blog !
+              <img src="https://i.ibb.co/pWYCKck/061008534417-0big-dchav-3.png" alt="Welcome To My Blog !">
             
           </a>
         </h1>
@@ -59,13 +57,13 @@
           
             <li class="header-navbar-item"><a href="/">首页</a></li>
           
-            <li class="header-navbar-item"><a href="/">分类</a></li>
+            <li class="header-navbar-item"><a href="/categories">分类</a></li>
           
-            <li class="header-navbar-item"><a href="/">标签</a></li>
+            <li class="header-navbar-item"><a href="/tags">标签</a></li>
           
-            <li class="header-navbar-item"><a href="/">留言</a></li>
+            <li class="header-navbar-item"><a href="/messages">留言</a></li>
           
-            <li class="header-navbar-item"><a href="/">关于</a></li>
+            <li class="header-navbar-item"><a href="/about">关于</a></li>
           
         </ul>
       </div>
@@ -148,9 +146,9 @@
       <div class="card-item">
         <article>
           
-          <a class="card-link article-nav-link" href="/2019/06/09/mycTest的副本/"></a>
+          <a class="card-link article-nav-link" href="/2019/06/09/mycTest的副本 10/"></a>
           <div class="article-nav-caption">Newer</div>
-          <div class="article-nav-title">Java线程概要</div>
+          <div class="article-nav-title">用动态规划解决01背包问题</div>
         </article>
       </div>
     
@@ -193,14 +191,136 @@
   </div>
 
   <div>
-  
     <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script> <!-- 动态线段背景 -->
 
     <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script> <!-- live2D看板娘 -->
-
-
   </div>
+  
+  <!-- 尾部其他内容 -->
 
+<!-- analytics -->
+
+
+
+
+
+
+
+  
+  
+<!-- valine 评论 -->
+<script type="text/javascript" src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script type="text/javascript" src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script type="text/javascript">
+  new Valine({
+    el: "#comment-container",
+    appId: "Fz1uXOkdxpK4j97yoD08izuC-gzGzoHsz",
+    appKey: "sYJfoJPzzbJUqMnkQVDX8hHU",
+    avatar: "mm",
+    placeholder: "随便说点什么叭～",
+    notify: true,
+    visitor: true,
+    pageSize: 10,
+  });
+</script>
+
+
+<!-- dplayer 视频 -->
+<link rel="stylesheet" href="/lib/DPlayer.min.css">
+<script src="/lib/DPlayer.min.js"></script>
+<script type="text/javascript">
+  const dplayer = document.querySelectorAll(".dplayer");
+  dplayer && initDPlayer(dplayer);
+  function initDPlayer(els) {
+    let elsArr = Array.from(els);
+    elsArr.forEach(el => {
+      let url = el.dataset.url;
+      let cover = el.dataset.cover;
+      new DPlayer({
+        container: el,
+        video: { url: url, pic: cover },
+        theme: "#b7daff",
+        autoplay: false,
+        loop: false,
+        mutex: true,
+      });
+    });
+  }
+</script>
+
+
+<!-- 瀑布流 -->
+<script src="/lib/macy.js"></script>
+<script type="text/javascript">
+
+if (document.querySelector(".waterfall-container")) {
+  initCss()
+  initMacy(".waterfall-container")
+}
+
+function initMacy(selector) {
+  new Macy({
+    container: selector,
+    trueOrder: false,
+    waitForImages: false,
+    useOwnImageLoader: false,
+    mobileFirst: true,
+    columns: 1,
+    margin: {
+      y: 16,
+      x: '2%',
+    },
+    breakAt: {
+      1200: {
+        margin: {
+          x: 20
+        },
+        columns: 4
+      },
+      940: {
+        margin: {
+          x: 20
+        },
+        columns: 3
+      },
+      520: {
+        margin: {
+          x: 10
+        },
+        columns: 2
+      },
+      400: {
+        margin: {
+          x: 0
+        },
+        columns: 1
+      },
+    }
+  });
+}
+
+function initCss() {
+  let cssStyle = document.createElement("style")
+  cssStyle.innerText = `.waterfall-container p { display: block; border-radius: 4px; overflow: hidden; margin: 0; }`
+  document.head.appendChild(cssStyle);
+}
+</script>
+
+
+<!-- 图片预览 -->
+<script src="/lib/zoom.min.js"></script>
+<script>
+  document.querySelector(".zoom") && zoom(".zoom", {
+    margin: 15,
+    padding: 15,
+    radius: 5,
+    specify: "",
+    filter: "gallery",
+  });
+</script>
+
+
+<script src="/js/script.js"></script>
 </body>
 </html>

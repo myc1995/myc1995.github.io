@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -177,7 +177,7 @@
 
     
 
-    <p>&copy; 2018-2019,YuChen Ma,All rights reserved.</p>
+    <p>&copy; 2018-2020,YuChen Ma,All rights reserved.</p>
   <!--
     <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> Theme - <a href="https://github.com/miiiku/flex-block" target="_blank">flex-block</a></p>
   </div>
@@ -275,63 +275,6 @@
   }
 </script>
 
-
-<!-- 瀑布流 -->
-<script src="/lib/macy.js"></script>
-<script type="text/javascript">
-
-if (document.querySelector(".waterfall-container")) {
-  initCss()
-  initMacy(".waterfall-container")
-}
-
-function initMacy(selector) {
-  new Macy({
-    container: selector,
-    trueOrder: false,
-    waitForImages: false,
-    useOwnImageLoader: false,
-    mobileFirst: true,
-    columns: 1,
-    margin: {
-      y: 16,
-      x: '2%',
-    },
-    breakAt: {
-      1200: {
-        margin: {
-          x: 20
-        },
-        columns: 4
-      },
-      940: {
-        margin: {
-          x: 20
-        },
-        columns: 3
-      },
-      520: {
-        margin: {
-          x: 10
-        },
-        columns: 2
-      },
-      400: {
-        margin: {
-          x: 0
-        },
-        columns: 1
-      },
-    }
-  });
-}
-
-function initCss() {
-  let cssStyle = document.createElement("style")
-  cssStyle.innerText = `.waterfall-container p { display: block; border-radius: 4px; overflow: hidden; margin: 0; }`
-  document.head.appendChild(cssStyle);
-}
-</script>
 
 
 <!-- 图片预览 -->

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -98,7 +98,7 @@
     
       <h1 class="header-title"><a href="/categories/index.html">分类</a></h1>
       
-      <h2 class="header-subtitle">共有2个分类</h2>
+      <h2 class="header-subtitle">共有7个分类</h2>
       
     
   </div>
@@ -119,16 +119,56 @@
             
             <div class="card-item">
               <article>
-                <a class="card-link" href="/categories/Java"></a>
-                <div class="text-info">Java (1)</div>
+                <a class="card-link" href="/categories/Music"></a>
+                <div class="text-info">Music (1)</div>
               </article>
             </div>
           
             
             <div class="card-item">
               <article>
-                <a class="card-link" href="/categories/框架"></a>
-                <div class="text-info">框架 (1)</div>
+                <a class="card-link" href="/categories/Photo"></a>
+                <div class="text-info">Photo (1)</div>
+              </article>
+            </div>
+          
+            
+            <div class="card-item large">
+              <article>
+                <a class="card-link" href="/categories/MachineLearning"></a>
+                <div class="text-info">MachineLearning (1)</div>
+              </article>
+            </div>
+          
+            
+            <div class="card-item large">
+              <article>
+                <a class="card-link" href="/categories/English"></a>
+                <div class="text-info">English (1)</div>
+              </article>
+            </div>
+          
+            
+            <div class="card-item">
+              <article>
+                <a class="card-link" href="/categories/Life"></a>
+                <div class="text-info">Life (2)</div>
+              </article>
+            </div>
+          
+            
+            <div class="card-item">
+              <article>
+                <a class="card-link" href="/categories/技术"></a>
+                <div class="text-info">技术 (1)</div>
+              </article>
+            </div>
+          
+            
+            <div class="card-item">
+              <article>
+                <a class="card-link" href="/categories/IELTS"></a>
+                <div class="text-info">IELTS (1)</div>
               </article>
             </div>
           
@@ -159,7 +199,7 @@
 
     
 
-    <p>&copy; 2018-2019,YuChen Ma,All rights reserved.</p>
+    <p>&copy; 2018-2020,YuChen Ma,All rights reserved.</p>
   <!--
     <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> Theme - <a href="https://github.com/miiiku/flex-block" target="_blank">flex-block</a></p>
   </div>
@@ -257,63 +297,6 @@
   }
 </script>
 
-
-<!-- 瀑布流 -->
-<script src="/lib/macy.js"></script>
-<script type="text/javascript">
-
-if (document.querySelector(".waterfall-container")) {
-  initCss()
-  initMacy(".waterfall-container")
-}
-
-function initMacy(selector) {
-  new Macy({
-    container: selector,
-    trueOrder: false,
-    waitForImages: false,
-    useOwnImageLoader: false,
-    mobileFirst: true,
-    columns: 1,
-    margin: {
-      y: 16,
-      x: '2%',
-    },
-    breakAt: {
-      1200: {
-        margin: {
-          x: 20
-        },
-        columns: 4
-      },
-      940: {
-        margin: {
-          x: 20
-        },
-        columns: 3
-      },
-      520: {
-        margin: {
-          x: 10
-        },
-        columns: 2
-      },
-      400: {
-        margin: {
-          x: 0
-        },
-        columns: 1
-      },
-    }
-  });
-}
-
-function initCss() {
-  let cssStyle = document.createElement("style")
-  cssStyle.innerText = `.waterfall-container p { display: block; border-radius: 4px; overflow: hidden; margin: 0; }`
-  document.head.appendChild(cssStyle);
-}
-</script>
 
 
 <!-- 图片预览 -->

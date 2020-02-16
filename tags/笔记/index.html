@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -17,7 +17,7 @@
 
   
 
-  <title>Archives | Welcome To My Blog !</title>
+  <title>Tag: 笔记 | Welcome To My Blog !</title>
 
   
 
@@ -72,7 +72,7 @@
   </div>
 </header>
 
-    <section id="main"><!-- 文章归档 -->
+    <section id="main"><!-- 标签归档 -->
 
 <!-- banner container -->
 <div class="banner-container" style="background-image: url(http://i-4-yxdown.715083.com/2017/11/5/27dee704-db93-4ef6-9ca6-17be4638ef8b.jpg?imageView2/2/q/90)">
@@ -83,14 +83,15 @@
 
     
     
-      <h1 class="header-title"><a href="/archives/2019/08/">归档</a></h1>
-      <h2 class="header-subtitle">共有2篇文章</h2>
-    
 
     
     
 
     
+    
+      
+      <h1 class="header-title"><a href="/tags/笔记/">笔记</a></h1>
+      <h2 class="header-subtitle">当前标签下共有1篇文章</h2>
     
     
 
@@ -109,26 +110,24 @@
       <div class="card-wrap">
         
           
-          <div class="card-item img">
+          <div class="card-item">
             <article>
               
-                <div class="card-cover" style="background-image: url(http://imgsrc.baidu.com/forum/pic/item/d40735fae6cd7b89dcbe9aea012442a7d8330e8c.jpg)"></div>
               
+                <a class="article-link" href="/2019/06/09/机器学习笔记/" itemprop="url"></a>
               
-                <a class="article-link" href="/2019/08/03/SpringBoot笔记/" itemprop="url"></a>
-              
-              <h2 class="article-title">SpringBoot基础笔记</h2>
+              <h2 class="article-title">机器学习</h2>
               <div class="article-meta">
                 <strong>YuChen Ma</strong>
                 <span>发布于</span>
                 
-  <a href="/2019/08/03/SpringBoot笔记/" class="article-date">
-    <time datetime="2019-08-03T01:48:42.000Z" itemprop="datePublished">2019-08-03</time>
+  <a href="/2019/06/09/机器学习笔记/" class="article-date">
+    <time datetime="2019-06-09T01:48:42.106Z" itemprop="datePublished">2019-06-09</time>
   </a>
 
               </div>
               <div class="article-category">
-                <a class="article-category-link" href="/categories/框架/">框架</a>
+                <a class="article-category-link" href="/categories/MachineLearning/">MachineLearning</a><a class="article-category-link" href="/categories/技术/">技术</a>
               </div>
             </article>
           </div>
@@ -139,7 +138,6 @@
 </div>
 
 <!-- page container -->
-
 </section>
 
     <!-- footer container -->
@@ -153,7 +151,7 @@
 
     
 
-    <p>&copy; 2018-2019,YuChen Ma,All rights reserved.</p>
+    <p>&copy; 2018-2020,YuChen Ma,All rights reserved.</p>
   <!--
     <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> Theme - <a href="https://github.com/miiiku/flex-block" target="_blank">flex-block</a></p>
   </div>
@@ -235,63 +233,6 @@
   }
 </script>
 
-
-<!-- 瀑布流 -->
-<script src="/lib/macy.js"></script>
-<script type="text/javascript">
-
-if (document.querySelector(".waterfall-container")) {
-  initCss()
-  initMacy(".waterfall-container")
-}
-
-function initMacy(selector) {
-  new Macy({
-    container: selector,
-    trueOrder: false,
-    waitForImages: false,
-    useOwnImageLoader: false,
-    mobileFirst: true,
-    columns: 1,
-    margin: {
-      y: 16,
-      x: '2%',
-    },
-    breakAt: {
-      1200: {
-        margin: {
-          x: 20
-        },
-        columns: 4
-      },
-      940: {
-        margin: {
-          x: 20
-        },
-        columns: 3
-      },
-      520: {
-        margin: {
-          x: 10
-        },
-        columns: 2
-      },
-      400: {
-        margin: {
-          x: 0
-        },
-        columns: 1
-      },
-    }
-  });
-}
-
-function initCss() {
-  let cssStyle = document.createElement("style")
-  cssStyle.innerText = `.waterfall-container p { display: block; border-radius: 4px; overflow: hidden; margin: 0; }`
-  document.head.appendChild(cssStyle);
-}
-</script>
 
 
 <!-- 图片预览 -->
